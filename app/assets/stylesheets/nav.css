@@ -1,0 +1,17 @@
+nav {
+  text-align: right;
+  height: 20px;
+  width: 100%;
+}
+
+.inner-nav {
+  margin: 0 auto;
+  border-bottom: thick solid #6CB98C;
+  width: 90%;
+}
+
+ul li {
+  list-style: none;
+  color: black;
+  display: inline-block;
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bossracing</title>
+    <title>BossRacing</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,20 +10,9 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-
-      <ul>
-        <li>Welcome, <%= current_user.username %></li> |
-        <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
-      </ul>
-    <% else %>
-      <ul>
-        <li><%= link_to "Log In", new_user_session_path %></li>
-      </ul>
-    <% end %>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render partial: 'shared/nav' %>
+    <%= render partial: 'shared/flash' %>
+    
     <%= yield %>
   </body>
 </html>
