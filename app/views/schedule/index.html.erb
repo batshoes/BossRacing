@@ -1,0 +1,11 @@
+<div class="calendar-holder">
+  <%= month_calendar events: @races do |date, races| %>
+    <%= date %>
+
+    <% races.each do |race| %>
+      <div>
+        <%= race.name %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
