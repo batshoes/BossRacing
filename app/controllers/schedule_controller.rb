@@ -1,5 +1,5 @@
 class ScheduleController < ApplicationController
   def index
-    @races = Race.all
+    @events = Event.all
   end
 end

@@ -15,7 +15,6 @@ class EventsTest < ApplicationSystemTestCase
     click_on "New Event"
 
     fill_in "Name", with: @event.name
-    fill_in "Race", with: @event.race_id
     fill_in "Start time", with: @event.start_time
     click_on "Create Event"
 
@@ -28,7 +27,6 @@ class EventsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Name", with: @event.name
-    fill_in "Race", with: @event.race_id
     fill_in "Start time", with: @event.start_time
     click_on "Update Event"
 

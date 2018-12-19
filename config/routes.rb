@@ -9,7 +9,5 @@ Rails.application.routes.draw do
   end
   devise_for :users
 
-  resources :races
-
   get '/schedule', to: 'schedule#index'
 end

@@ -3,8 +3,6 @@ class CreateEvents < ActiveRecord::Migration[5.2]
     create_table :events do |t|
       t.string :name
       t.datetime :start_time
-      t.references :race
-
       t.timestamps
     end
   end

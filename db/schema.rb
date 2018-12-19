@@ -18,15 +18,6 @@ ActiveRecord::Schema.define(version: 2018_12_19_070750) do
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.datetime "start_time"
-    t.bigint "race_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["race_id"], name: "index_events_on_race_id"
-  end
-
-  create_table "races", force: :cascade do |t|
-    t.string "name"
-    t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

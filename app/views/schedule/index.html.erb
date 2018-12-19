@@ -1,10 +1,10 @@
 <div class="calendar-holder">
-  <%= month_calendar attribute: :starts_at, events: @races do |date, races| %>
+  <%= month_calendar attribute: :start_time, events: @events do |date, events| %>
     <%= date %>
 
-    <% races.each do |race| %>
+    <% events.each do |event| %>
       <div>
-        <%= race.name %>
+        <%= event.name %>
       </div>
     <% end %>
   <% end %>
