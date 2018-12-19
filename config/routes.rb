@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "home#index"
   # Users
@@ -7,8 +8,6 @@ Rails.application.routes.draw do
     get "/sign-up", to: "devise/registrations#new", as: "sign_up" # custom path to sign_up/registration
   end
   devise_for :users
-
-  resources :races
 
   get '/schedule', to: 'schedule#index'
 end

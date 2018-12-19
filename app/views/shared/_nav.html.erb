@@ -3,7 +3,8 @@
     <% if user_signed_in? %>
       <ul>
         <li>Welcome, <%= current_user.username %></li> |
-        <li><%= link_to "Schedule", schedule_path %></li> |
+        <li><%= link_to "New Challenge", new_event_path %></li> |
+        <li><%= link_to "Upcoming Schedule", schedule_path %></li> |
         <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
       </ul>
     <% else %>

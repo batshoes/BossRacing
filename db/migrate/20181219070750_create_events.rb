@@ -1,9 +1,8 @@
-class CreateRaces < ActiveRecord::Migration[5.2]
+class CreateEvents < ActiveRecord::Migration[5.2]
   def change
-    create_table :races do |t|
+    create_table :events do |t|
       t.string :name
       t.datetime :start_time
-
       t.timestamps
     end
   end
