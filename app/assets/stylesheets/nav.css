@@ -1,6 +1,9 @@
 nav {
+  overflow: hidden;
   text-align: right;
-  height: 20px;
+  position: fixed;
+  background: #FFF;
+  top: 0;
   width: 100%;
 }
 

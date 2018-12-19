@@ -1,0 +1,32 @@
+.simple-calendar {
+  padding: 20px;
+  text-align: center;
+}
+.table-striped {
+  margin: 0 auto;
+}
+.day {}
+
+.wday-0 {}
+.wday-1 {}
+.wday-2 {}
+.wday-3 {}
+.wday-4 {}
+.wday-5 {}
+.wday-6 {}
+
+.today {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+.past {}
+.future {}
+
+.start-date {}
+
+.prev-month {}
+.next-month { }
+.current-month {}
+
+.has-events {}

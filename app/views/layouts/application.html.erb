@@ -11,8 +11,9 @@
 
   <body>
     <%= render partial: 'shared/nav' %>
-    <%= render partial: 'shared/flash' %>
-    
-    <%= yield %>
+    <div class="main">
+      <%= render partial: 'shared/flash' %>
+      <%= yield %>
+    </div>
   </body>
 </html>
