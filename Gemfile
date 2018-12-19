@@ -15,6 +15,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
+gem 'sprockets-rails'
 
 # Calendar for Event Scheduling
 gem "simple_calendar", "~> 2.0"
@@ -41,6 +42,10 @@ gem 'devise'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
+# bootstrap and jquery gem for SASS
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.1.3'
 
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console
