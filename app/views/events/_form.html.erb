@@ -14,7 +14,7 @@
   <div class="field">
     <%= form.label :name%>
     <br>
-    <%= form.text_field :name %>
+    <%= form.select :name, options_for_select(Event::EVENT_TYPES)%>
   </div>
 
   <div class="field">
