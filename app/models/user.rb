@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :trackable, authentication_keys: [:login]
   attr_writer :login
 
+  has_many :challenges
+
  def login
    @login || self.username || self.email
  end

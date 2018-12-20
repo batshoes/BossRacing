@@ -2,9 +2,24 @@
 * {
   font-family: 'Quicksand', sans-serif;
 }
+
 .main {
   padding: 16px;
   margin-top: 30px;
+  text-align: center;
+}
+
+.top-rated {
+  margin: 0 auto;
+  text-align: center;
+  li {
+    list-style: none;
+    font-size: 15px;
+  }
+}
+
+table {
+  margin: 0 auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,6 +32,9 @@ a {
 
 a:visited {
   color: black;
+}
+a:hover {
+  background-color: white;
 }
 
 .flash {

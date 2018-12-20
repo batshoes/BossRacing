@@ -1,2 +1,8 @@
 <h1>Boss Racing</h1>
 <h3>Top 10 Racers</h3>
+
+<div class="top-rated">
+  <% @users.each do |user| %>
+    <li><%= user.username %></li>
+  <% end %>
+</div>
