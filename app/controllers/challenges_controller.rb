@@ -13,9 +13,8 @@ class ChallengesController < ApplicationController
   end
 
   def create
-    binding.pry
     @challenge = Challenge.new(challenge_params)
-    
+
     respond_to do |format|
       if @challenge.save
         format.html { redirect_to @challenge, notice: 'Challenge Sent.' }
