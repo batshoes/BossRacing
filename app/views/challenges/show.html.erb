@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Challenger:</strong>
   <%= @challenge.challenger %>
@@ -8,6 +6,16 @@
 <p>
   <strong>Challengee:</strong>
   <%= @challenge.challengee %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @challenge.start_time.strftime("%H:%M - %e %b %Y")%>
+</p>
+
+<p>
+  <strong>Challenge Type:</strong>
+  <%= @challenge.event_name %>
 </p>
 
 <%= link_to 'Edit', edit_challenge_path(@challenge) %> |
