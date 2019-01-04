@@ -1,4 +1,6 @@
 class ChallengesController < ApplicationController
+  before_action :require_login
+  
   def index
     @challenges = Challenge.all
   end
