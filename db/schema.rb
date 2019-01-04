@@ -18,12 +18,7 @@ ActiveRecord::Schema.define(version: 2018_12_20_051439) do
   create_table "challenges", force: :cascade do |t|
     t.integer "challenger_id"
     t.integer "challengee_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "events", force: :cascade do |t|
-    t.string "name"
+    t.string "event_name"
     t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

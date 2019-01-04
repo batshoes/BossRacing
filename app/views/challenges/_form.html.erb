@@ -1,4 +1,4 @@
-<%= form_with(model: challenge, local: true) do |form| %>
+<%= form_for challenge do |form| %>
 
   <div class="field">
     <%= form.hidden_field :challenger_id, value: current_user.id %>
@@ -6,12 +6,19 @@
     <br>
     <%= form.select :challengee_id, options_from_collection_for_select(@challengers, :id, :username) %>
   </div>
-<!--
+
+
+  <div class="field">
+    <%= form.label :event_name%>
+    <br>
+    <%= form.select :event_name, options_for_select(Challenge::EVENT_TYPES)%>
+  </div>
+
   <div class="field">
     <%= form.label :start_time %>
-
     <%= form.datetime_select :start_time %>
-  </div> -->
+  </div>
+
 
   <div class="actions">
     <%= form.submit "Create Challenge" %>

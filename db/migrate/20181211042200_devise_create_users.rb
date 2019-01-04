@@ -41,5 +41,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
+
+    User.create(username: "batman", email: "batman@gmail.com", password: "test1234")
+    User.create(username: "robin", email: "robin@gmail.com", password: "test1234")
+    User.create(username: "batgirl", email: "batgirl@gmail.com", password: "test1234")
+    User.create(username: "alfred", email: "alfred@gmail.com", password: "test1234")
+    User.create(username: "joker", email: "joker@gmail.com", password: "test1234")
+    User.create(username: "penguin", email: "penguin@gmail.com", password: "test1234")
+    User.create(username: "riddler", email: "riddler@gmail.com", password: "test1234")
+    User.create(username: "batman", email: "batman@gmail.com", password: "test1234")
   end
 end

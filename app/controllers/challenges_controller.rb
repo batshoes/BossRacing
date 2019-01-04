@@ -13,11 +13,12 @@ class ChallengesController < ApplicationController
   end
 
   def create
+    binding.pry
     @challenge = Challenge.new(challenge_params)
-
+    
     respond_to do |format|
       if @challenge.save
-        format.html { redirect_to @challenge, notice: 'Event was successfully created.' }
+        format.html { redirect_to @challenge, notice: 'Challenge Sent.' }
         format.json { render :show, status: :created, location: @challenge }
       else
         format.html { render :new }
@@ -27,8 +28,9 @@ class ChallengesController < ApplicationController
   end
 
   private
+
   def challenge_params
     params.require(:challenge)
-          .permit(:challenger_id, :challengee_id)
+          .permit(:challenger_id, :challengee_id, :event_name, :start_time)
   end
 end
