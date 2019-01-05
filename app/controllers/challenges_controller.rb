@@ -17,7 +17,6 @@ class ChallengesController < ApplicationController
 
   def create
     @challenge = Challenge.new(challenge_params)
-    binding.pry
     respond_to do |format|
       if @challenge.save
         format.html { redirect_to @challenge, notice: 'Challenge Initiated!' }
