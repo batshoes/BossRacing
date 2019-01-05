@@ -15,8 +15,8 @@
 
 <p>
   <strong>Challenge Type:</strong>
-  <%= @challenge.event_name %>
+  <%= @challenge.event.name %>
 </p>
 
 <%= link_to 'Edit', edit_challenge_path(@challenge) %> |
-<%= link_to 'Back', challenges_path %>
+<%= link_to 'Back', schedule_path %>

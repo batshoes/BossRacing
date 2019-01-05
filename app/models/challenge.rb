@@ -1,7 +1,13 @@
 class Challenge < ApplicationRecord
   has_many :users
-  
-  EVENT_TYPES = ["500m Row", "5km Row", "Best of 5 minutes", "Best of 10 minutes"]
+  belongs_to :event
+
+  validates_presence_of :event_id
+
+  def event_name
+    event.name
+  end
+
   def challenger
     User.find(self.challenger_id).username
   end
