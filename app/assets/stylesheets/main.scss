@@ -46,25 +46,25 @@ a:hover {
   border-radius: 4px;
 }
 
-.notice {
+.notice, .accepted-status {
   color: #3c763d;
   background-color: #dff0d8;
   border-color: #d6e9c6;
 }
 
-.alert {
+.alert, .rejected-status{
   color: #a94442;
   background-color: #f2dede;
   border-color: #ebccd1;
 }
 
-.warning {
+.warning, .pending-status {
   color: #8a6d3b;
   background-color: #fcf8e3;
   border-color: #faebcc;
 }
 
-.info {
+.info, .completed-status {
   color: #31708f;
   background-color: #d9edf7;
   border-color: #bce8f1;
