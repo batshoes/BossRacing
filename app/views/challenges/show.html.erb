@@ -10,7 +10,7 @@
 
 <p>
   <strong>Time:</strong>
-  <%= @challenge.start_time.strftime(parsed_time)%>
+  <%= @challenge.start_time.strftime(parsed_time_and_date)%>
 </p>
 
 <p>
@@ -18,5 +18,10 @@
   <%= @challenge.event.name %>
 </p>
 
-<%= link_to 'Edit', edit_challenge_path(@challenge) %> |
+<% if @challenge.challengee == current_user.username %>
+ <%= link_to 'Accept', edit_challenge_path(@challenge) %> |
+ <%= link_to 'Reject', edit_challenge_path(@challenge) %> |
+<% elsif @challenge.challenger == current_user.username %>
+  <%= link_to 'Edit', edit_challenge_path(@challenge) %> |
+<% end %>
 <%= link_to 'Back', schedule_path %>

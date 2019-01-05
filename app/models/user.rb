@@ -5,19 +5,24 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :trackable, authentication_keys: [:login]
   attr_writer :login
-
   has_many :challenges
+  has_many :initiated_challenges, class_name: "Challenge", foreign_key: :challenger_id
+  has_many :received_challenges, class_name: "Challenge", foreign_key: :challengee_id
 
- def login
-   @login || self.username || self.email
- end
+  def challenges
+    initiated_challenges + received_challenges
+  end
 
- def self.find_for_database_authentication(warden_conditions)
-      conditions = warden_conditions.dup
-      if login = conditions.delete(:login)
-        where(conditions.to_h).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
-      elsif conditions.has_key?(:username) || conditions.has_key?(:email)
-        where(conditions.to_h).first
-      end
+  def login
+    @login || self.username || self.email
+  end
+
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions.to_h).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+    elsif conditions.has_key?(:username) || conditions.has_key?(:email)
+      where(conditions.to_h).first
     end
+  end
 end

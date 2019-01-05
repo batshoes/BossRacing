@@ -1,46 +1,40 @@
 class ChallengesController < ApplicationController
-  before_action :require_login
+  before_action :set_challenge, only: [:show, :edit, :update, :destroy]
 
+  # GET /challenges
+  # GET /challenges.json
   def index
-    @challenges = Challenge.all
+    @initiated_challenges = current_user.initiated_challenges
+    @received_challenges = current_user.received_challenges
   end
 
+  # GET /challenges/1
+  # GET /challenges/1.json
   def show
     @challenge = Challenge.find(params[:id])
   end
 
+  # GET /challenges/new
   def new
     @challenge = Challenge.new
     @events = Event.all
     @challengers = User.where.not(id: current_user.id)
   end
 
-  def create
-    @challenge = Challenge.new(challenge_params)
-    respond_to do |format|
-      if @challenge.save
-        format.html { redirect_to @challenge, notice: 'Challenge Initiated!' }
-        format.json { render :show, status: :created, location: @challenge }
-      else
-        format.html { render :new }
-        format.json { render json: @challenge.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
+  # GET /challenges/1/edit
   def edit
-    @challenge = Challenge.find(params[:id])
     @events = Event.all
     @challengers = User.where.not(id: current_user.id)
   end
 
-  def update
-    @challenge = Challenge.find(params[:id])
-    @challenge.update_attributes(challenge_params)
+  # POST /challenges
+  # POST /challenges.json
+  def create
+    @challenge = Challenge.new(challenge_params)
 
     respond_to do |format|
       if @challenge.save
-        format.html { redirect_to @challenge, notice: 'Challenge Initiated!' }
+        format.html { redirect_to @challenge, notice: 'Challenge was successfully created.' }
         format.json { render :show, status: :created, location: @challenge }
       else
         format.html { render :new }
@@ -49,10 +43,39 @@ class ChallengesController < ApplicationController
     end
   end
 
-  private
-
-  def challenge_params
-    params.require(:challenge)
-          .permit(:challenger_id, :challengee_id, :event_id, :start_time)
+  # PATCH/PUT /challenges/1
+  # PATCH/PUT /challenges/1.json
+  def update
+    respond_to do |format|
+      if @challenge.update(challenge_params)
+        format.html { redirect_to @challenge, notice: 'Challenge was successfully updated.' }
+        format.json { render :show, status: :ok, location: @challenge }
+      else
+        format.html { render :edit }
+        format.json { render json: @challenge.errors, status: :unprocessable_entity }
+      end
+    end
   end
+
+  # DELETE /challenges/1
+  # DELETE /challenges/1.json
+  def destroy
+    @challenge.destroy
+    respond_to do |format|
+      format.html { redirect_to challenges_url, notice: 'Challenge was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_challenge
+      @challenge = Challenge.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def challenge_params
+      params.require(:challenge)
+            .permit(:challenger_id, :challengee_id, :start_time, :event_id)
+    end
 end

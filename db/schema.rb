@@ -10,20 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_05_014253) do
+ActiveRecord::Schema.define(version: 2019_01_05_195813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "challenges", force: :cascade do |t|
-    t.integer "challenger_id"
-    t.integer "challengee_id"
-    t.bigint "event_id"
-    t.datetime "start_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_challenges_on_event_id"
-  end
+# Could not dump table "challenges" because of following StandardError
+#   Unknown type 'challenge_statuses' for column 'status'
 
   create_table "events", force: :cascade do |t|
     t.string "name"
