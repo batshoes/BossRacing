@@ -1,17 +1,20 @@
 <%= form_for challenge do |form| %>
+  <div class="field">
+    <label>Challenger: <strong><%=current_user.username%></strong></label>
+  </div>
 
   <div class="field">
     <%= form.hidden_field :challenger_id, value: current_user.id %>
     <%= form.label :challengee %>
     <br>
-    <%= form.select :challengee_id, options_from_collection_for_select(@challengers, :id, :username) %>
+    <%= form.select :challengee_id, options_from_collection_for_select(@challengers, :id, :username)%>
   </div>
 
 
   <div class="field">
-    <%= form.label :event_name%>
+    <%= form.label :event_id%>
     <br>
-    <%= form.select :event_name, options_for_select(Challenge::EVENT_TYPES)%>
+    <%= form.select :event_id, options_from_collection_for_select(@events, :id, :name)%>
   </div>
 
   <div class="field">
@@ -21,6 +24,6 @@
 
 
   <div class="actions">
-    <%= form.submit "Create Challenge" %>
+    <%= form.submit "#{@challenge.persisted? ? 'Update' : 'Create' } Challenge" %>
   </div>
 <% end %>
