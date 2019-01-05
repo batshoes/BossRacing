@@ -19,8 +19,8 @@
 </p>
 
 <% if @challenge.challengee == current_user.username %>
- <%= link_to 'Accept', edit_challenge_path(@challenge) %> |
- <%= link_to 'Reject', edit_challenge_path(@challenge) %> |
+ <%= link_to 'Accept', challenge_path(@challenge, challenge: { status: 'accepted' }), method: :put, remote: true %> |
+ <%= link_to 'Reject', challenge_path(@challenge, challenge: { status: 'rejected' }), method: :put, remote: true %> |
 <% elsif @challenge.challenger == current_user.username %>
   <%= link_to 'Edit', edit_challenge_path(@challenge) %> |
 <% end %>

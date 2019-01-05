@@ -23,6 +23,7 @@ class ChallengesController < ApplicationController
 
   # GET /challenges/1/edit
   def edit
+    binding.pry
     @events = Event.all
     @challengers = User.where.not(id: current_user.id)
   end
@@ -76,6 +77,6 @@ class ChallengesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def challenge_params
       params.require(:challenge)
-            .permit(:challenger_id, :challengee_id, :start_time, :event_id)
+            .permit(:challenger_id, :challengee_id, :start_time, :event_id, :status)
     end
 end
