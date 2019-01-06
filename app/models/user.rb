@@ -5,9 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :trackable, authentication_keys: [:login]
   attr_writer :login
+
   has_many :challenges
   has_many :initiated_challenges, class_name: "Challenge", foreign_key: :challenger_id
   has_many :received_challenges, class_name: "Challenge", foreign_key: :challengee_id
+
+  enum roles: {
+    user: 'user',
+    admin: 'admin'
+  }
 
   def challenges
     initiated_challenges + received_challenges

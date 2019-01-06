@@ -1,6 +1,6 @@
 class ChallengesController < ApplicationController
   before_action :set_challenge, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
   # GET /challenges
   # GET /challenges.json
   def index
@@ -23,7 +23,6 @@ class ChallengesController < ApplicationController
 
   # GET /challenges/1/edit
   def edit
-    binding.pry
     @events = Event.all
     @challengers = User.where.not(id: current_user.id)
   end
