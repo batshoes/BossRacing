@@ -10,6 +10,8 @@ class Challenge < ApplicationRecord
 
   validates_presence_of :event_id, :start_time, :challenger_id, :challengee_id
 
+  scope :upcoming, ->(limit, status){ where(status: status).limit(limit) }
+
   def event_name
     event.name
   end

@@ -1,8 +1,33 @@
-<h1>Boss Racing</h1>
-<h3>Top 10 Racers</h3>
+<div class="home-container">
+  <div class="left-sidebar">
+    <h4>Upcoming Races</h4>
+    <div class="sidebar">
+      <% @challenges.each do |challenge| %>
+        <%= link_to "#{challenge_title(challenge)} - #{challenge.start_time.strftime(parsed_time_and_date)} ", challenge_path(challenge), class: "#{challenge.status}-status" %>
+      <% end %>
+    </div>
+  </div>
 
-<div class="top-rated">
-  <% @users.each do |user| %>
-    <li><%= user.username %></li>
-  <% end %>
+  <div class="about">
+    <h1>Boss Racing</h1>
+    <p>
+      Across from where? Now, when you do this without getting punched in the chest, you'll have more fun. There's so many poorly chosen words in that sentence. I don't criticize you! And if you're worried about criticism, sometimes a diet is the best defense.
+      We just call it a sausage. I don't understand the question, and I won't respond to it. I'm a monster. I'm a monster.
+      I don't criticize you! And if you're worried about criticism, sometimes a diet is the best defense. Michael! I care deeply for nature. I'm a monster. Marry me.
+      We just call it a sausage. Michael! Now, when you do this without getting punched in the chest, you'll have more fun. We just call it a sausage. I'm a monster.
+      No… but I'd like to be asked! As you may or may not know, Lindsay and I have hit a bit of a rough patch. It's called 'taking advantage.' It's what gets you ahead in life. There's so many poorly chosen words in that sentence.
+      Michael! Steve Holt! Did you enjoy your meal, Mom? You drank it fast enough. Bad news. Andy Griffith turned us down. He didn't like his trailer. That's why you always leave a note!</p>
+  </div>
+
+  <div class="right-sidebar">
+    <h4>Top 10 Racers</h4>
+    <div class="sidebar">
+      <% @users.each do |user| %>
+        <li><%= user.username %></li>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="footer">Brought to you by Kieran Kobelke</div>
+
 </div>

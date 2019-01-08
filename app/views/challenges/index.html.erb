@@ -1,60 +1,69 @@
-<h1>My Challenges</h1>
+<div class="challenge-container">
+  <div class="left-sidebar">Left Sidebar Stuff</div>
 
-<% if @received_challenges.present? %>
-  <h2>Recieved Challenged</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Challenger</th>
-        <th>Challenge Type</th>
-        <th>Challenge Start</th>
-        <th>Challenge Status</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+  <div class="challenge-content">
+    <h1>My Challenges</h1>
 
-    <tbody>
-      <% @received_challenges.each do |challenge| %>
-        <tr>
-          <td><%= challenge.challenger %></td>
-          <td><%= challenge.event_name %></td>
-          <td><%= challenge.start_time.strftime(parsed_time_and_date) %></td>
-          <td class="<%= challenge.status%>-status"><%= challenge.status %></td>
-          <td><%= link_to 'Show', challenge %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+    <% if @received_challenges.present? %>
+      <h2>Recieved Challenged</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Challenger</th>
+            <th>Challenge Type</th>
+            <th>Challenge Start</th>
+            <th>Challenge Status</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-<% if @initiated_challenges.present? %>
-  <h2>Initiated Challenged</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Challengee</th>
-        <th>Challenge Type</th>
-        <th>Challenge Start</th>
-        <th>Challenge Status</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+        <tbody>
+          <% @received_challenges.each do |challenge| %>
+            <tr>
+              <td><%= challenge.challenger %></td>
+              <td><%= challenge.event_name %></td>
+              <td><%= challenge.start_time.strftime(parsed_time_and_date) %></td>
+              <td class="<%= challenge.status%>-status"><%= challenge.status %></td>
+              <td><%= link_to 'Show', challenge %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
 
-    <tbody>
-      <% @initiated_challenges.each do |challenge| %>
-        <tr>
-          <td><%= challenge.challengee %></td>
-          <td><%= challenge.event_name %></td>
-          <td><%= challenge.start_time.strftime(parsed_time_and_date) %></td>
-          <td class="<%= challenge.status%>-status"><%= challenge.status %></td>
-          <td><%= link_to 'Show', challenge %></td>
-          <td><%= link_to 'Edit', edit_challenge_path(challenge) %></td>
-          <td><%= link_to 'Destroy', challenge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <br>
-<% end %>
+    <% if @initiated_challenges.present? %>
+      <h2>Initiated Challenged</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Challengee</th>
+            <th>Challenge Type</th>
+            <th>Challenge Start</th>
+            <th>Challenge Status</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-<%= link_to 'New Challenge', new_challenge_path %>
+        <tbody>
+          <% @initiated_challenges.each do |challenge| %>
+            <tr>
+              <td><%= challenge.challengee %></td>
+              <td><%= challenge.event_name %></td>
+              <td><%= challenge.start_time.strftime(parsed_time_and_date) %></td>
+              <td class="<%= challenge.status%>-status"><%= challenge.status %></td>
+              <td><%= link_to 'Show', challenge %></td>
+              <td><%= link_to 'Edit', edit_challenge_path(challenge) %></td>
+              <td><%= link_to 'Destroy', challenge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+    <% end %>
+
+    <%= link_to 'New Challenge', new_challenge_path %>
+  </div>
+
+  <div class="right-sidebar">Sidebar Stuff</div>
+  <div class="footer">Footer Stuff</div>
+</div>

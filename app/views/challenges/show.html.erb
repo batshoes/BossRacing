@@ -18,10 +18,16 @@
   <%= @challenge.event.name %>
 </p>
 
-<% if can? :edit, @challenge %>
-  <%= link_to 'Edit', edit_challenge_path(@challenge) %> |
+<p>
+  <strong>Challenge Status:</strong>
+  <span class="<%=@challenge.status%>-status padding-5-px"><%= @challenge.status.titleize %><span>
+</p>
+<% if can? :mark_challenge_complete, @challenge %>
+  <%= link_to 'Completed!', challenge_path(@challenge, challenge: { status: 'completed' }), method: :put, remote: true %> |
+<% elsif can? :accept_or_reject_challenge, @challenge %>
   <%= link_to 'Accept', challenge_path(@challenge, challenge: { status: 'accepted' }), method: :put, remote: true %> |
   <%= link_to 'Reject', challenge_path(@challenge, challenge: { status: 'rejected' }), method: :put, remote: true %> |
-<% elsif can? :read, @challenge %>
-  <%= link_to 'Back', schedule_path %>
+<% elsif can? :manage, @challenge %>
+  <%= link_to 'Edit', edit_challenge_path(@challenge) %> |
 <% end %>
+<%= link_to 'Back', schedule_path %>
