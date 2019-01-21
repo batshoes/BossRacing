@@ -1,0 +1,24 @@
+<%= form_for [challenge, result] do |form| %>
+  <div class="field">
+    <label>Challenger: <strong><%=challenge.challenger.username%></strong></label>
+    <label>Challengee: <strong><%=challenge.challengee.username%></strong></label>
+    <%= form.hidden_field :challenge_id, value: challenge.id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :victor %>
+    <br>
+    <%= form.select :victor_id, options_from_collection_for_select(challenge.users, :id, :username)%>
+  </div>
+
+  <div class="field">
+    <%= form.label :defeated %>
+    <br>
+    <%= form.select :defeated_id, options_from_collection_for_select(challenge.users, :id, :username)%>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit "#{result.persisted? ? 'Update' : 'Create' } Result" %>
+  </div>
+<% end %>

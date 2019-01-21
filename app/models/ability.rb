@@ -35,14 +35,13 @@ class Ability
     # Only Challenge issuer can destroy/edit details
     can :manage, Challenge, challenger_id: user.id
     # Only  Challenge receiver can update status from pending -> accept/rejected
-  can :update, Challenge, challengee_id: user.id
+    can :update, Challenge, challengee_id: user.id
     can :accept_or_reject_challenge, Challenge, challengee_id: user.id, status: 'pending'
     # Either Challenger or Challengee can update status to completed, issuing confirmation email
-    can :mark_challenge_complete, Challenge, challengee_id: user.id, status: 'accepted'
-    can :mark_challenge_complete, Challenge, challengee_id: user.id, status: 'rejected'
-    can :mark_challenge_complete, Challenge, challenger_id: user.id, status: 'accepted'
-    can :mark_challenge_complete, Challenge, challenger_id: user.id, status: 'rejected'
-
+    can :create_challenge_result, Challenge, challengee_id: user.id, status: 'accepted'
+    can :create_challenge_result, Challenge, challengee_id: user.id, status: 'rejected'
+    can :create_challenge_result, Challenge, challenger_id: user.id, status: 'accepted'
+    can :create_challenge_result, Challenge, challenger_id: user.id, status: 'rejected'
     return unless user.admin?
     # Allow admin user full access
     can :manage, :all

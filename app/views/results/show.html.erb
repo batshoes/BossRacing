@@ -1,0 +1,24 @@
+<div class="centered-container">
+  <p>
+    <strong>Victor:</strong>
+    <%= @result.victor.username %>
+  </p>
+
+  <p>
+    <strong>Defeated:</strong>
+    <%= @result.defeated.username %>
+  </p>
+
+  <p>
+    <strong>Challenge Type:</strong>
+    <%= @result.challenge.event_name %>
+  </p>
+
+  <p>
+    <strong>Challenge Status:</strong>
+    <span class="<%=@result.challenge.status%>-status padding-5-px"><%= @result.challenge.status.titleize %><span>
+  </p>
+
+  <%= link_to 'Back', challenges_path %>
+
+</div>

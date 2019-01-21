@@ -6,9 +6,10 @@ class User < ApplicationRecord
          :trackable, authentication_keys: [:login]
   attr_writer :login
 
-  has_many :challenges
   has_many :initiated_challenges, class_name: "Challenge", foreign_key: :challenger_id
   has_many :received_challenges, class_name: "Challenge", foreign_key: :challengee_id
+
+  has_many :wins, through: :initiated_challenges
 
   enum roles: {
     user: 'user',

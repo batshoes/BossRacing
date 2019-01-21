@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_06_015101) do
+ActiveRecord::Schema.define(version: 2019_01_10_102714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,11 +27,11 @@ ActiveRecord::Schema.define(version: 2019_01_06_015101) do
 
   create_table "results", force: :cascade do |t|
     t.bigint "challenge_id"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "victor_id"
+    t.integer "defeated_id"
     t.index ["challenge_id"], name: "index_results_on_challenge_id"
-    t.index ["user_id"], name: "index_results_on_user_id"
   end
 
 # Could not dump table "users" because of following StandardError

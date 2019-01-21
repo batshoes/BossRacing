@@ -5,8 +5,13 @@ class Challenge < ApplicationRecord
     rejected: 'rejected',
     completed: 'completed'
   }
-  has_many :users
+
   belongs_to :event
+
+  belongs_to :challenger, class_name: 'User'
+  belongs_to :challengee, class_name: 'User'
+
+  has_one :result
 
   validates_presence_of :event_id, :start_time, :challenger_id, :challengee_id
 
@@ -16,11 +21,8 @@ class Challenge < ApplicationRecord
     event.name
   end
 
-  def challenger
-    User.find(self.challenger_id).username
+  def users
+    return [challenger, challengee]
   end
 
-  def challengee
-    User.find(self.challengee_id).username
-  end
 end

@@ -1,33 +1,36 @@
-<p>
-  <strong>Challenger:</strong>
-  <%= @challenge.challenger %>
-</p>
+<div class="centered-container">
+  <p>
+    <strong>Challenger:</strong>
+    <%= @challenge.challenger.username %>
+  </p>
 
-<p>
-  <strong>Challengee:</strong>
-  <%= @challenge.challengee %>
-</p>
+  <p>
+    <strong>Challengee:</strong>
+    <%= @challenge.challengee.username %>
+  </p>
 
-<p>
-  <strong>Time:</strong>
-  <%= @challenge.start_time.strftime(parsed_time_and_date)%>
-</p>
+  <p>
+    <strong>Time:</strong>
+    <%= @challenge.start_time.strftime(parsed_time_and_date)%>
+  </p>
 
-<p>
-  <strong>Challenge Type:</strong>
-  <%= @challenge.event.name %>
-</p>
+  <p>
+    <strong>Challenge Type:</strong>
+    <%= @challenge.event.name %>
+  </p>
 
-<p>
-  <strong>Challenge Status:</strong>
-  <span class="<%=@challenge.status%>-status padding-5-px"><%= @challenge.status.titleize %><span>
-</p>
-<% if can? :mark_challenge_complete, @challenge %>
-  <%= link_to 'Completed!', challenge_path(@challenge, challenge: { status: 'completed' }), method: :put, remote: true %> |
-<% elsif can? :accept_or_reject_challenge, @challenge %>
-  <%= link_to 'Accept', challenge_path(@challenge, challenge: { status: 'accepted' }), method: :put, remote: true %> |
-  <%= link_to 'Reject', challenge_path(@challenge, challenge: { status: 'rejected' }), method: :put, remote: true %> |
-<% elsif can? :manage, @challenge %>
-  <%= link_to 'Edit', edit_challenge_path(@challenge) %> |
-<% end %>
-<%= link_to 'Back', schedule_path %>
+  <p>
+    <strong>Challenge Status:</strong>
+    <span class="<%=@challenge.status%>-status padding-5-px"><%= @challenge.status.titleize %><span>
+  </p>
+  <% if can? :create_challenge_result, @challenge %>
+    <%= link_to 'Completed!', new_challenge_result_path(@challenge) %> |
+  <% elsif can? :accept_or_reject_challenge, @challenge %>
+    <%= link_to 'Accept', challenge_path(@challenge, challenge: { status: 'accepted' }), method: :put, remote: true %> |
+    <%= link_to 'Reject', challenge_path(@challenge, challenge: { status: 'rejected' }), method: :put, remote: true %> |
+  <% elsif can? :manage, @challenge %>
+    <%= link_to 'Edit', edit_challenge_path(@challenge) %> |
+  <% end %>
+  <%= link_to 'Back', schedule_path %>
+
+</div>
