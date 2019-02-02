@@ -1,6 +1,6 @@
 module ApplicationHelper
   def challenge_title(challenge)
-    "#{challenge.challenger} v #{challenge.challengee}"
+    "#{challenge.challenger_name} v #{challenge.challengee_name}"
   end
 
   def parsed_time

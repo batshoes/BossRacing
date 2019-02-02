@@ -5,6 +5,10 @@ class Challenge < ApplicationRecord
     rejected: 'rejected',
     completed: 'completed'
   }
+
+  belongs_to :challenger, class_name: 'User'
+  belongs_to :challengee, class_name: 'User'
+
   has_many :users
   belongs_to :event
 
@@ -14,11 +18,11 @@ class Challenge < ApplicationRecord
     event.name
   end
 
-  def challenger
-    User.find(self.challenger_id).username
+  def challenger_name
+    challenger.username
   end
 
-  def challengee
-    User.find(self.challengee_id).username
+  def challengee_name
+    challengee.username
   end
 end

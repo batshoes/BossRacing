@@ -16,7 +16,7 @@
     <tbody>
       <% @received_challenges.each do |challenge| %>
         <tr>
-          <td><%= challenge.challenger %></td>
+          <td><%= challenge.challenger_name %></td>
           <td><%= challenge.event_name %></td>
           <td><%= challenge.start_time.strftime(parsed_time_and_date) %></td>
           <td class="<%= challenge.status%>-status"><%= challenge.status %></td>
@@ -43,7 +43,7 @@
     <tbody>
       <% @initiated_challenges.each do |challenge| %>
         <tr>
-          <td><%= challenge.challengee %></td>
+          <td><%= challenge.challengee_name %></td>
           <td><%= challenge.event_name %></td>
           <td><%= challenge.start_time.strftime(parsed_time_and_date) %></td>
           <td class="<%= challenge.status%>-status"><%= challenge.status %></td>

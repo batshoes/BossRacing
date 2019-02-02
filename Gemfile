@@ -48,7 +48,6 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
 
 group :development, :test do
-  # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console
   gem 'pry-rails'
 end
 
