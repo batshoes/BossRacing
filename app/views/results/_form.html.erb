@@ -8,13 +8,13 @@
   <div class="field">
     <%= form.label :victor %>
     <br>
-    <%= form.select :victor_id, options_from_collection_for_select(challenge.users, :id, :username)%>
+    <%= form.select :victor_id, options_from_collection_for_select([challenge.challenger, challenge.challengee], :id, :username)%>
   </div>
 
   <div class="field">
     <%= form.label :defeated %>
     <br>
-    <%= form.select :defeated_id, options_from_collection_for_select(challenge.users, :id, :username)%>
+    <%= form.select :defeated_id, options_from_collection_for_select([challenge.challenger, challenge.challengee], :id, :username)%>
   </div>
 
 
